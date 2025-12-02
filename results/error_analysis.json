@@ -1,0 +1,39 @@
+[
+  {
+    "source": "Two female members of team USA performing a jump high-five surrounded by two other female members.",
+    "reference": "Deux femmes membres de l'équipe américaine sautant en se tapant dans les mains, entourées de deux autres coéquipières.",
+    "hypothesis": "deux jeunes de ballet , <unk> <unk> un un sur un autre , deux deux deux hommes .",
+    "bleu": 1.4454543871607488,
+    "error_types": [
+      "Từ vựng ngoài từ điển (OOV)"
+    ]
+  },
+  {
+    "source": "The man in a Japanese cooking suit is preparing a meal for two people.",
+    "reference": "L'homme en tenue de cuisinier japonais prépare un repas pour deux personnes.",
+    "hypothesis": "l' homme dans un costume de travail se prépare à vendre de nourriture .",
+    "bleu": 2.0200106912694156,
+    "error_types": []
+  },
+  {
+    "source": "Guitar player performs at a nightclub red guitar.",
+    "reference": "Un guitariste joue sur une guitare rouge dans une boîte de nuit.",
+    "hypothesis": "un cow - boy joue à une table de des chaises rouges .",
+    "bleu": 2.3233421968350108,
+    "error_types": []
+  },
+  {
+    "source": "A blond holding hands with a guy in the sand.",
+    "reference": "Une blonde donnant la main à un gars dans le sable.",
+    "hypothesis": "une fille blonde tenant avec un enfant dans l' air .",
+    "bleu": 2.5738301809738573,
+    "error_types": []
+  },
+  {
+    "source": "Outside a building, a uniformed security guard looks at the camera from behind a fence.",
+    "reference": "Devant un bâtiment, un garde de sécurité en uniforme situé derrière une clôture regarde l'objectif.",
+    "hypothesis": "en train d' un un , un homme , un homme est debout devant une affiche et regarde le plafond .",
+    "bleu": 2.7318298593910915,
+    "error_types": []
+  }
+]
