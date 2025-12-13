@@ -12,43 +12,39 @@ import json
 import os
 
 
-def calculate_bleu_score(references, hypotheses, max_n=4):
+def calculate_bleu_score(references, hypotheses):
     """
-    Tính BLEU score cho corpus
+    Tính BLEU-4 score cho corpus (theo yêu cầu đề tài)
     Sử dụng nltk.translate.bleu_score.sentence_bleu
     
     Args:
         references: List of reference translations (mỗi câu là list of tokens)
         hypotheses: List of hypothesis translations (mỗi câu là list of tokens)
-        max_n: BLEU-n (mặc định: 4)
         
     Returns:
-        bleu_scores: Dict chứa BLEU-1, BLEU-2, BLEU-3, BLEU-4
+        bleu_score: Float - BLEU-4 score (%)
     """
     # Smoothing function để tránh 0 score với n-gram không match
     smooth = SmoothingFunction()
     
-    bleu_scores = {}
+    # BLEU-4 với weights đều cho 4-gram
+    weights = (0.25, 0.25, 0.25, 0.25)
     
-    for n in range(1, max_n + 1):
-        weights = tuple([1/n] * n + [0] * (4 - n))
+    scores = []
+    for ref, hyp in zip(references, hypotheses):
+        # reference phải là list of lists (có thể có nhiều references)
+        ref_list = [ref] if isinstance(ref[0], str) else ref
         
-        scores = []
-        for ref, hyp in zip(references, hypotheses):
-            # reference phải là list of lists (có thể có nhiều references)
-            ref_list = [ref] if isinstance(ref[0], str) else ref
-            
-            score = sentence_bleu(
-                ref_list, 
-                hyp, 
-                weights=weights,
-                smoothing_function=smooth.method1
-            )
-            scores.append(score)
-        
-        bleu_scores[f'BLEU-{n}'] = np.mean(scores) * 100  # Convert to percentage
+        score = sentence_bleu(
+            ref_list, 
+            hyp, 
+            weights=weights,
+            smoothing_function=smooth.method1
+        )
+        scores.append(score)
     
-    return bleu_scores
+    # Trả về BLEU-4 trung bình (%)
+    return np.mean(scores) * 100
 
 
 def evaluate_model_bleu(model, data_loader, src_vocab, tgt_vocab, device, max_len=50):
@@ -152,40 +148,34 @@ def plot_training_history(history, save_path='results/training_history.png'):
     plt.show()
 
 
-def plot_bleu_scores(bleu_scores, save_path='results/bleu_scores.png'):
+def plot_bleu_scores(bleu_score, save_path='results/bleu_score.png'):
     """
-    Vẽ biểu đồ BLEU scores
+    Vẽ biểu đồ BLEU-4 score
     
     Args:
-        bleu_scores: Dict chứa BLEU-1, BLEU-2, BLEU-3, BLEU-4
+        bleu_score: Float - BLEU-4 score (%)
         save_path: Đường dẫn lưu hình
     """
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(8, 6))
     
-    metrics = list(bleu_scores.keys())
-    values = list(bleu_scores.values())
+    # Tạo bar chart với 1 bar duy nhất
+    bar = plt.bar(['BLEU-4'], [bleu_score], color='#2ecc71', alpha=0.8, 
+                   edgecolor='black', width=0.5)
     
-    colors = ['#3498db', '#2ecc71', '#f39c12', '#e74c3c']
-    bars = plt.bar(metrics, values, color=colors, alpha=0.8, edgecolor='black')
+    # Thêm giá trị lên bar
+    plt.text(0, bleu_score, f'{bleu_score:.2f}%',
+            ha='center', va='bottom', fontsize=16, fontweight='bold')
     
-    # Thêm giá trị lên mỗi bar
-    for bar, value in zip(bars, values):
-        height = bar.get_height()
-        plt.text(bar.get_x() + bar.get_width()/2., height,
-                f'{value:.2f}%',
-                ha='center', va='bottom', fontsize=12, fontweight='bold')
-    
-    plt.xlabel('BLEU Metric', fontsize=12)
     plt.ylabel('Score (%)', fontsize=12)
-    plt.title('BLEU Scores on Test Set', fontsize=14, fontweight='bold')
-    plt.ylim(0, max(values) * 1.2)
+    plt.title('BLEU-4 Score on Test Set', fontsize=14, fontweight='bold')
+    plt.ylim(0, bleu_score * 1.3)
     plt.grid(True, axis='y', alpha=0.3)
     plt.tight_layout()
     
     # Tạo thư mục nếu chưa có
     os.makedirs(os.path.dirname(save_path), exist_ok=True)
     plt.savefig(save_path, dpi=300, bbox_inches='tight')
-    print(f"✓ Biểu đồ BLEU scores đã lưu tại: {save_path}")
+    print(f"✓ Biểu đồ BLEU score đã lưu tại: {save_path}")
     
     plt.show()
 

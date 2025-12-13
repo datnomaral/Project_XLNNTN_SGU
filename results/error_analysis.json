@@ -1,39 +1,37 @@
 [
   {
+    "source": "A wakeboarder performs a flip while being towed at high speed.",
+    "reference": "Un wakeboardeur effectue un salto tout en étant tracté à grande vitesse.",
+    "hypothesis": "un motard prend une cascade tandis qu' il roule sur un . .",
+    "bleu": 2.0448007360218394,
+    "error_types": []
+  },
+  {
+    "source": "Shirtless guy staring off in the distance while three woman are walking past a crowd sitting outside a cafe.",
+    "reference": "Un gars torse nu regardant au loin tandis que trois femmes passent devant une foule assise devant un café.",
+    "hypothesis": "un homme torse nu regarde l' objectif , l' attention de la foule de gens assis à une table sur un banc .",
+    "bleu": 2.3956565612760214,
+    "error_types": []
+  },
+  {
     "source": "Two female members of team USA performing a jump high-five surrounded by two other female members.",
     "reference": "Deux femmes membres de l'équipe américaine sautant en se tapant dans les mains, entourées de deux autres coéquipières.",
-    "hypothesis": "deux jeunes de ballet , <unk> <unk> un un sur un autre , deux deux deux hommes .",
-    "bleu": 1.4454543871607488,
-    "error_types": [
-      "Từ vựng ngoài từ điển (OOV)"
-    ]
-  },
-  {
-    "source": "The man in a Japanese cooking suit is preparing a meal for two people.",
-    "reference": "L'homme en tenue de cuisinier japonais prépare un repas pour deux personnes.",
-    "hypothesis": "l' homme dans un costume de travail se prépare à vendre de nourriture .",
-    "bleu": 2.0200106912694156,
+    "hypothesis": "deux joueuses de filles féminin et un un un terrain de terre , tandis que deux autres hommes .",
+    "bleu": 2.794268617267609,
     "error_types": []
   },
   {
-    "source": "Guitar player performs at a nightclub red guitar.",
-    "reference": "Un guitariste joue sur une guitare rouge dans une boîte de nuit.",
-    "hypothesis": "un cow - boy joue à une table de des chaises rouges .",
-    "bleu": 2.3233421968350108,
+    "source": "Group of Asian boys wait for meat to cook over barbecue.",
+    "reference": "Un groupe de garçons asiatiques attendent que la viande soit cuite sur le barbecue.",
+    "hypothesis": "un groupe d' asiatiques asiatiques préparent pour faire des choses à un un .",
+    "bleu": 3.344511038039969,
     "error_types": []
   },
   {
-    "source": "A blond holding hands with a guy in the sand.",
-    "reference": "Une blonde donnant la main à un gars dans le sable.",
-    "hypothesis": "une fille blonde tenant avec un enfant dans l' air .",
-    "bleu": 2.5738301809738573,
-    "error_types": []
-  },
-  {
-    "source": "Outside a building, a uniformed security guard looks at the camera from behind a fence.",
-    "reference": "Devant un bâtiment, un garde de sécurité en uniforme situé derrière une clôture regarde l'objectif.",
-    "hypothesis": "en train d' un un , un homme , un homme est debout devant une affiche et regarde le plafond .",
-    "bleu": 2.7318298593910915,
+    "source": "An employee is handing a woman a bag while she is browsing through fish on ice at a street market.",
+    "reference": "Un employé donne un sac à une femme tandis qu'elle regarde du poisson sur de la glace sur un marché de rue.",
+    "hypothesis": "un ouvrier d' un homme parle à son téléphone portable tandis qu' il marche sur un coin de rue dans la rue .",
+    "bleu": 3.4469133167290327,
     "error_types": []
   }
 ]

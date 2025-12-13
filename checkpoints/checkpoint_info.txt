@@ -1,0 +1,93 @@
+======================================================================
+THÔNG TIN CHI TIẾT FILE: best_model.pth
+======================================================================
+
+1. THÔNG TIN CƠ BẢN
+----------------------------------------
+   File:           checkpoints/best_model.pth
+   Kích thước:     200.92 MB
+   Best Epoch:     13
+   Train Loss:     1.8152
+   Val Loss:       3.4128
+   Best Val Loss:  3.4128
+
+2. CÁC THÀNH PHẦN TRONG CHECKPOINT
+----------------------------------------
+   ✓ epoch
+   ✓ model_state_dict
+   ✓ optimizer_state_dict
+   ✓ train_loss
+   ✓ val_loss
+   ✓ best_val_loss
+
+3. KIẾN TRÚC MODEL (Model State Dict)
+----------------------------------------
+   Tổng số layers: 20
+
+   Tổng số parameters: 17,554,448
+
+   Chi tiết các layers:
+   ------------------------------------------------------------
+   encoder.embedding.weight
+      Shape: [9797, 256], Params: 2,508,032
+   encoder.lstm.weight_ih_l0
+      Shape: [2048, 256], Params: 524,288
+   encoder.lstm.weight_hh_l0
+      Shape: [2048, 512], Params: 1,048,576
+   encoder.lstm.bias_ih_l0
+      Shape: [2048], Params: 2,048
+   encoder.lstm.bias_hh_l0
+      Shape: [2048], Params: 2,048
+   encoder.lstm.weight_ih_l1
+      Shape: [2048, 512], Params: 1,048,576
+   encoder.lstm.weight_hh_l1
+      Shape: [2048, 512], Params: 1,048,576
+   encoder.lstm.bias_ih_l1
+      Shape: [2048], Params: 2,048
+   encoder.lstm.bias_hh_l1
+      Shape: [2048], Params: 2,048
+   decoder.embedding.weight
+      Shape: [10000, 256], Params: 2,560,000
+   decoder.lstm.weight_ih_l0
+      Shape: [2048, 256], Params: 524,288
+   decoder.lstm.weight_hh_l0
+      Shape: [2048, 512], Params: 1,048,576
+   decoder.lstm.bias_ih_l0
+      Shape: [2048], Params: 2,048
+   decoder.lstm.bias_hh_l0
+      Shape: [2048], Params: 2,048
+   decoder.lstm.weight_ih_l1
+      Shape: [2048, 512], Params: 1,048,576
+   decoder.lstm.weight_hh_l1
+      Shape: [2048, 512], Params: 1,048,576
+   decoder.lstm.bias_ih_l1
+      Shape: [2048], Params: 2,048
+   decoder.lstm.bias_hh_l1
+      Shape: [2048], Params: 2,048
+   decoder.fc.weight
+      Shape: [10000, 512], Params: 5,120,000
+   decoder.fc.bias
+      Shape: [10000], Params: 10,000
+
+4. THÔNG SỐ MÔ HÌNH (Trích xuất từ weights)
+----------------------------------------
+   Encoder Vocab Size:    9797
+   Encoder Embedding Dim: 256
+   Decoder Vocab Size:    10000
+   Decoder Embedding Dim: 256
+   Hidden Size:           512
+   LSTM Layers:           2 (có weight l0 và l1)
+
+5. OPTIMIZER STATE
+----------------------------------------
+   Có lưu optimizer state: ✓
+   Param Group 0:
+      Learning Rate: 0.001
+      Weight Decay:  0
+
+======================================================================
+✅ ĐÂY LÀ FILE CHECKPOINT HỢP LỆ CỦA MÔ HÌNH SEQ2SEQ LSTM
+   - Encoder-Decoder LSTM với context vector cố định
+   - Không sử dụng Attention (theo yêu cầu đề tài)
+   - Tự code từ đầu, không dùng thư viện seq2seq có sẵn
+======================================================================
